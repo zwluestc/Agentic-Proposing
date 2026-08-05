@@ -1,0 +1,60 @@
+{
+  "provider": {
+    "type": "anthropic",
+    "base_url": "https://api.anthropic.com",
+    "model": "SET_A_SOTA_TEACHER_MODEL",
+    "api_key_env": "ANTHROPIC_API_KEY",
+    "timeout_seconds": 180
+  },
+  "harness": {
+    "max_turns": 40,
+    "temperature": 0.2,
+    "max_tokens_per_turn": 8192
+  },
+  "permissions": {
+    "allow_read_only": true,
+    "allow_network": false,
+    "allow_process": false,
+    "allow_registry_writes": true,
+    "allowed": [],
+    "denied": [],
+    "ask": []
+  },
+  "skill_mining": {
+    "enabled": true,
+    "max_events": 300
+  },
+  "verification": {
+    "contamination_questions": [],
+    "model_committee_enabled": false,
+    "model_voters": 3,
+    "second_audit": true,
+    "require_self_check": true
+  },
+  "context": {
+    "max_context_chars": 100000,
+    "max_transcript_chars": 45000,
+    "max_skill_chars_each": 12000,
+    "max_skill_total_chars": 30000
+  },
+  "sources": {
+    "roots": []
+  },
+  "tools": {
+    "max_parallel": 8,
+    "max_inline_chars": 24000
+  },
+  "python": {
+    "allowed_imports": [],
+    "default_timeout_seconds": 20
+  },
+  "web": {
+    "backend": "",
+    "allowed_domains": [],
+    "timeout_seconds": 30
+  },
+  "external_tools": {
+    "providers": [],
+    "refresh_on_start": false
+  }
+}

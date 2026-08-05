@@ -1,0 +1,50 @@
+cff-version: 1.2.0
+message: "If you use Agentic Proposing in your research, please cite the paper below."
+title: "Agentic Proposing: Enhancing Large Language Model Reasoning via Compositional Skill Synthesis"
+type: software
+version: 0.2.0
+date-released: 2026-08-05
+license: MIT
+repository-code: "https://github.com/Frostlinx/Agentic-Proposing"
+url: "https://arxiv.org/abs/2602.03279"
+doi: "10.48550/arXiv.2602.03279"
+authors:
+  - family-names: Jiao
+    given-names: Zhengbo
+  - family-names: Wang
+    given-names: Shaobo
+  - family-names: Zhang
+    given-names: Zifan
+  - family-names: Ren
+    given-names: Xuan
+  - family-names: Wang
+    given-names: Wei
+  - family-names: Zhao
+    given-names: Bing
+  - family-names: Wei
+    given-names: Hu
+  - family-names: Zhang
+    given-names: Linfeng
+preferred-citation:
+  type: article
+  title: "Agentic Proposing: Enhancing Large Language Model Reasoning via Compositional Skill Synthesis"
+  year: 2026
+  journal: "arXiv preprint arXiv:2602.03279"
+  doi: "10.48550/arXiv.2602.03279"
+  authors:
+    - family-names: Jiao
+      given-names: Zhengbo
+    - family-names: Wang
+      given-names: Shaobo
+    - family-names: Zhang
+      given-names: Zifan
+    - family-names: Ren
+      given-names: Xuan
+    - family-names: Wang
+      given-names: Wei
+    - family-names: Zhao
+      given-names: Bing
+    - family-names: Wei
+      given-names: Hu
+    - family-names: Zhang
+      given-names: Linfeng

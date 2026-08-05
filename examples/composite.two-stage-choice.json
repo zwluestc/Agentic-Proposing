@@ -1,0 +1,41 @@
+{
+  "skill_id": "med.task.two-stage-clearance-choice",
+  "name": "Two-stage clearance single-choice task",
+  "version": "0.1.0",
+  "description": "Compose repeated temporal calculation with error-derived single-choice rendering.",
+  "intent": "Create a uniquely gradable longitudinal calculation task.",
+  "instances": [
+    {
+      "instance_id": "clearance_baseline_followup",
+      "skill_id": "med.calc.two-stage-clearance",
+      "bind": {"case.baseline_value":"task.baseline", "case.followup_value":"task.followup"},
+      "role": "produce verified scalar change"
+    },
+    {
+      "instance_id": "choice_renderer",
+      "skill_id": "task.choice.numeric-distractors",
+      "bind": {"gold.scalar":"clearance_baseline_followup.case.clearance_delta"},
+      "role": "render unique options"
+    }
+  ],
+  "edges": [
+    {
+      "from":"clearance_baseline_followup.case.clearance_delta",
+      "to":"choice_renderer.gold.scalar",
+      "data_type":"number"
+    }
+  ],
+  "inputs": ["task.baseline", "task.followup", "task.formula"],
+  "outputs": ["task.single_choice", "task.gold_option"],
+  "procedure": [
+    "Bind two distinct time-point values to the repeated calculation skill.",
+    "Verify both calculations and their scalar difference.",
+    "Pass only the verified scalar and intermediates to the distractor skill.",
+    "Reject duplicate or numerically equivalent options before finalization."
+  ],
+  "novelty_claim": ["A temporal calculation result becomes the typed input to an error-derived choice renderer."],
+  "evidence_contract": {"knowledge_dependency": false},
+  "difficulty_effect": {"base": 5, "temporal_reasoning": 2, "distractor_similarity": 2},
+  "tags": ["medical", "calculation", "single-choice", "composite"]
+}
+

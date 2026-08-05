@@ -1,0 +1,3 @@
+{"id":"demo-1","task_type":"calculation","question":"Using the supplied formula, calculate the value at two time points and report the change.","answer":"scalar change","metadata":{"purpose":"skill extraction demo"}}
+{"id":"demo-2","task_type":"single_choice","question":"Which option uniquely matches the row selected by all stated decision-table conditions?","answer":"one option","metadata":{"purpose":"skill extraction demo"}}
+
