@@ -1,0 +1,151 @@
+{
+  "workspace": "research-workspace/math-proposer",
+  "seeds": "configs/proposer_seeds.math.jsonl",
+  "bootstrap_synthetic_skills": false,
+  "teacher": {
+    "type": "openai_compatible",
+    "base_url": "https://evamux.alibaba-inc.com/v1",
+    "base_url_env": "ENVMUX_BASE_URL",
+    "model": "qwen3.8-flash",
+    "api_key_env": "ENVMUX_API_KEY",
+    "timeout_seconds": 180,
+    "max_retries": 2,
+    "extra_body": {
+      "enable_thinking": false
+    },
+    "credential_file": "research-workspace/envmux.local.json"
+  },
+  "verifier": {
+    "type": "openai_compatible",
+    "base_url": "https://evamux.alibaba-inc.com/v1",
+    "base_url_env": "ENVMUX_BASE_URL",
+    "model": "qwen3.8-flash",
+    "api_key_env": "ENVMUX_API_KEY",
+    "timeout_seconds": 180,
+    "max_retries": 2,
+    "extra_body": {
+      "enable_thinking": false,
+      "response_format": {
+        "type": "json_object"
+      }
+    },
+    "max_output_tokens": 2048,
+    "credential_file": "research-workspace/envmux.local.json"
+  },
+  "runtime": {
+    "harness": {
+      "max_turns": 16,
+      "temperature": 0.8,
+      "max_tokens_per_turn": 3072
+    },
+    "permissions": {
+      "allow_read_only": true,
+      "allow_network": false,
+      "allow_process": true,
+      "allow_registry_writes": false
+    },
+    "verification": {
+      "require_self_check": true,
+      "model_committee_enabled": true,
+      "model_voters": 3,
+      "second_audit": true,
+      "require_math_spec": true,
+      "trajectory_max_chars": 12000
+    },
+    "skill_mining": {
+      "enabled": false
+    },
+    "context": {
+      "max_context_chars": 100000,
+      "max_transcript_chars": 40000,
+      "max_skill_total_chars": 16000,
+      "max_skill_chars_each": 7000
+    }
+  },
+  "sft": {
+    "episodes": 32,
+    "data_file": "research-workspace/math-proposer/training/sft_trajectories.jsonl",
+    "base_model": "Qwen/Qwen3-4B-Instruct-2507",
+    "output_dir": "research-workspace/math-proposer/training/sft_checkpoint",
+    "max_length": 32768,
+    "epochs": 2,
+    "learning_rate": 2e-05,
+    "per_device_batch_size": 1,
+    "gradient_accumulation_steps": 8,
+    "target_accepted": 500,
+    "collection_workers": 8,
+    "max_collection_attempts": 1500,
+    "min_accepted_for_training": 136
+  },
+  "mgpo": {
+    "iterations": 16,
+    "group_size": 8,
+    "output_dir": "research-workspace/math-proposer/training/mgpo",
+    "prober_model": "Qwen/Qwen3-4B-Instruct-2507",
+    "prober_attempts": 16,
+    "prober_temperature": 1.4,
+    "max_context_tokens": 32768,
+    "max_action_tokens": 1536,
+    "rollout_temperature": 0.7,
+    "omega": 0.5,
+    "beta": 0.05,
+    "tau_pos": 1.0,
+    "tau_neg": 1.05,
+    "reward_base": 1.0,
+    "difficulty_weight": 1.0,
+    "curriculum_alpha": 0.1,
+    "curriculum_epsilon": 0.05,
+    "judge_reflections": true,
+    "learning_rate": 1e-06,
+    "weight_decay": 0.1,
+    "seed": 42,
+    "prober_max_new_tokens": 4096,
+    "save_steps": 10,
+    "save_total_limit": 2
+  },
+  "solver_grpo": {
+    "data_file": "research-workspace/math-proposer/training/mgpo/rollouts.jsonl",
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "output_dir": "research-workspace/math-proposer/training/solver_grpo",
+    "require_paper_budget": false,
+    "paper_budget": 10000,
+    "epochs": 3,
+    "learning_rate": 1e-06,
+    "group_size": 8,
+    "global_batch_size": 8,
+    "per_device_batch_size": 1,
+    "temperature": 0.7,
+    "max_sequence_length": 20480,
+    "max_prompt_length": 2048,
+    "beta": 0.05,
+    "clip_epsilon": 0.2,
+    "weight_decay": 0.1
+  },
+  "skill_library": "configs/math_skills/atomic",
+  "math_parameter_suggestions": true,
+  "grpo": {
+    "iterations": 16,
+    "group_size": 8,
+    "output_dir": "research-workspace/math-proposer/training/grpo-proposer",
+    "prober_model": "Qwen/Qwen3-4B-Instruct-2507",
+    "prober_attempts": 16,
+    "prober_temperature": 1.4,
+    "max_context_tokens": 32768,
+    "max_action_tokens": 1536,
+    "rollout_temperature": 0.7,
+    "beta": 0.05,
+    "reward_base": 1.0,
+    "difficulty_weight": 1.0,
+    "curriculum_alpha": 0.1,
+    "curriculum_epsilon": 0.05,
+    "learning_rate": 1e-06,
+    "weight_decay": 0.1,
+    "seed": 42,
+    "prober_max_new_tokens": 4096,
+    "clip_epsilon": 0.2,
+    "update_epochs": 1,
+    "judge_reflections": false,
+    "save_steps": 10,
+    "save_total_limit": 2
+  }
+}

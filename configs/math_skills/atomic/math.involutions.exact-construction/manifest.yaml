@@ -1,0 +1,45 @@
+{
+  "skill_id": "math.involutions.exact-construction",
+  "name": "Self-inverse labeled permutations",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "verified",
+  "description": "Count permutations sigma of n distinct labels satisfying sigma(sigma(i))=i for every label. Fixed points ARE allowed; all other cycles must have length two.",
+  "intent": "Self-inverse labeled permutations",
+  "triggers": [
+    "involutions"
+  ],
+  "inputs": [
+    "metadata.math_spec.parameters"
+  ],
+  "outputs": [
+    "scalar exact answer"
+  ],
+  "difficulty_effect": {
+    "mechanism": "constraint interaction; parameter dependent, not measured"
+  },
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "evidence_contract": {
+    "knowledge_dependency": false
+  },
+  "source_refs": [
+    {
+      "type": "hand_authored",
+      "source": "scripts/prepare_math_training.py"
+    }
+  ],
+  "metrics": {
+    "passed": true,
+    "validation_type": "exact_constructor_fixture_replay",
+    "fixtures_passed": 2,
+    "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+  },
+  "tags": [
+    "math",
+    "involutions",
+    "exact"
+  ]
+}

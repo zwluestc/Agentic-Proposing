@@ -1,0 +1,288 @@
+{
+  "skills": [
+    {
+      "skill_id": "math.linear.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.quadratic.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.crt.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.digit_count.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.paths.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.recurrence.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.probability.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.optimization.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.graph.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.rational_sum.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.arithmetic_progression.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.geometric_sum.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.polynomial_evaluation.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.polynomial_remainder.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.binomial_selection.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.bounded_compositions.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.coin_change.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.subset_sum.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.derangements.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.involutions.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.surjections.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.catalan.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.necklaces.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.ballot.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.permutation_inversions.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.gcd_lcm.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.divisor_sum.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.totient.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.modular_power.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.multiplicative_order.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.valuation_factorial.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.trailing_zeros_binomial.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.diophantine_nonnegative.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.integer_triangles.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.triangle_area_squared.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.lattice_polygon_interior.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.circumradius_squared.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.markov_chain.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.urn_hypergeometric.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    },
+    {
+      "skill_id": "math.expected_max.exact-construction",
+      "passed": true,
+      "validation_type": "exact_constructor_fixture_replay",
+      "fixtures_passed": 2,
+      "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+    }
+  ],
+  "supporting_skills": 10,
+  "seeds": 240,
+  "official_library": false,
+  "library_version": "2.0.0"
+}

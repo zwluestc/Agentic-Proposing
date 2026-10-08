@@ -1,0 +1,45 @@
+{
+  "skill_id": "math.necklaces.exact-construction",
+  "name": "Cyclic colorings modulo rotation",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "verified",
+  "description": "Count length-bead necklaces colored with colors distinct colors. Two colorings are equivalent under ROTATION only; reflections are distinct unless a rotation relates them. Periodic colorings are included.",
+  "intent": "Cyclic colorings modulo rotation",
+  "triggers": [
+    "necklaces"
+  ],
+  "inputs": [
+    "metadata.math_spec.parameters"
+  ],
+  "outputs": [
+    "scalar exact answer"
+  ],
+  "difficulty_effect": {
+    "mechanism": "constraint interaction; parameter dependent, not measured"
+  },
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "evidence_contract": {
+    "knowledge_dependency": false
+  },
+  "source_refs": [
+    {
+      "type": "hand_authored",
+      "source": "scripts/prepare_math_training.py"
+    }
+  ],
+  "metrics": {
+    "passed": true,
+    "validation_type": "exact_constructor_fixture_replay",
+    "fixtures_passed": 2,
+    "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+  },
+  "tags": [
+    "math",
+    "necklaces",
+    "exact"
+  ]
+}

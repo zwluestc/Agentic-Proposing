@@ -1,0 +1,45 @@
+{
+  "skill_id": "math.catalan.exact-construction",
+  "name": "Prefix-constrained balanced parentheses",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "verified",
+  "description": "Count strings of semilength opening and semilength closing parentheses such that every prefix has at least as many opens as closes. The empty prefix is allowed; positions are ordered.",
+  "intent": "Prefix-constrained balanced parentheses",
+  "triggers": [
+    "catalan"
+  ],
+  "inputs": [
+    "metadata.math_spec.parameters"
+  ],
+  "outputs": [
+    "scalar exact answer"
+  ],
+  "difficulty_effect": {
+    "mechanism": "constraint interaction; parameter dependent, not measured"
+  },
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "evidence_contract": {
+    "knowledge_dependency": false
+  },
+  "source_refs": [
+    {
+      "type": "hand_authored",
+      "source": "scripts/prepare_math_training.py"
+    }
+  ],
+  "metrics": {
+    "passed": true,
+    "validation_type": "exact_constructor_fixture_replay",
+    "fixtures_passed": 2,
+    "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+  },
+  "tags": [
+    "math",
+    "catalan",
+    "exact"
+  ]
+}

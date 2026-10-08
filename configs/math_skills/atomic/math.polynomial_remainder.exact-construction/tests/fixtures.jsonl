@@ -1,0 +1,2 @@
+{"input": {"family": "polynomial_remainder", "parameters": {"b": 0, "c": -1, "exponent": 5, "coefficient": 1}}, "expected_answer": "1"}
+{"input": {"family": "polynomial_remainder", "parameters": {"b": -3, "c": 2, "exponent": 3, "coefficient": 0}}, "expected_answer": "-6"}

@@ -1,0 +1,2 @@
+{"input": {"family": "modular_power", "parameters": {"base": 3, "exponent": 5, "modulus": 7}}, "expected_answer": "5"}
+{"input": {"family": "modular_power", "parameters": {"base": 2, "exponent": 10, "modulus": 13}}, "expected_answer": "10"}

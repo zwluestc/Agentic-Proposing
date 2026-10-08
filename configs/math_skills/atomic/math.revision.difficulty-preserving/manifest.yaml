@@ -1,0 +1,25 @@
+{
+  "skill_id": "math.revision.difficulty-preserving",
+  "name": "Difficulty-preserving repair",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "curated",
+  "description": "Repair a genuine invalidity without automatically discarding the interacting constraints that made the problem useful. Restore feasibility and scalar gradability first, then check retained structural complexity. Do not claim measured difficulty without Solver evidence.",
+  "intent": "Difficulty-preserving repair",
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "source_refs": [
+    {
+      "type": "hand_authored"
+    }
+  ],
+  "metrics": {
+    "scope": "Process guidance; not independently replay-certified"
+  },
+  "tags": [
+    "math",
+    "process"
+  ]
+}

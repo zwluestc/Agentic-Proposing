@@ -1,0 +1,45 @@
+{
+  "skill_id": "math.urn_hypergeometric.exact-construction",
+  "name": "Without-replacement urn probabilities",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "verified",
+  "description": "An urn contains red red and blue blue distinguishable balls. Draw draws balls uniformly WITHOUT replacement. Ask for the probability of exactly target_red red balls; return a reduced fraction.",
+  "intent": "Without-replacement urn probabilities",
+  "triggers": [
+    "urn_hypergeometric"
+  ],
+  "inputs": [
+    "metadata.math_spec.parameters"
+  ],
+  "outputs": [
+    "scalar exact answer"
+  ],
+  "difficulty_effect": {
+    "mechanism": "constraint interaction; parameter dependent, not measured"
+  },
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "evidence_contract": {
+    "knowledge_dependency": false
+  },
+  "source_refs": [
+    {
+      "type": "hand_authored",
+      "source": "scripts/prepare_math_training.py"
+    }
+  ],
+  "metrics": {
+    "passed": true,
+    "validation_type": "exact_constructor_fixture_replay",
+    "fixtures_passed": 2,
+    "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+  },
+  "tags": [
+    "math",
+    "urn_hypergeometric",
+    "exact"
+  ]
+}

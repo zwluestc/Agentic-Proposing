@@ -1,0 +1,55 @@
+{
+  "default_model": "qwen3.8-flash",
+  "profiles": {
+    "qwen3.5-flash": {
+      "type": "openai_compatible",
+      "base_url": "https://evamux.alibaba-inc.com/v1",
+      "base_url_env": "ENVMUX_BASE_URL",
+      "api_key_env": "ENVMUX_API_KEY",
+      "credential_file": "research-workspace/envmux.local.json",
+      "model": "qwen3.5-flash",
+      "timeout_seconds": 180,
+      "max_retries": 2
+    },
+    "qwen3.6-flash": {
+      "type": "openai_compatible",
+      "base_url": "https://evamux.alibaba-inc.com/v1",
+      "base_url_env": "ENVMUX_BASE_URL",
+      "api_key_env": "ENVMUX_API_KEY",
+      "credential_file": "research-workspace/envmux.local.json",
+      "model": "qwen3.6-flash",
+      "timeout_seconds": 180,
+      "max_retries": 2
+    },
+    "deepseek-v4-flash-0731": {
+      "type": "openai_compatible",
+      "base_url": "https://evamux.alibaba-inc.com/v1",
+      "base_url_env": "ENVMUX_BASE_URL",
+      "api_key_env": "ENVMUX_API_KEY",
+      "credential_file": "research-workspace/envmux.local.json",
+      "model": "deepseek-v4-flash-0731",
+      "timeout_seconds": 180,
+      "max_retries": 2
+    },
+    "qwen3.7-plus": {
+      "type": "openai_compatible",
+      "base_url": "https://evamux.alibaba-inc.com/v1",
+      "base_url_env": "ENVMUX_BASE_URL",
+      "api_key_env": "ENVMUX_API_KEY",
+      "credential_file": "research-workspace/envmux.local.json",
+      "model": "qwen3.7-plus",
+      "timeout_seconds": 180,
+      "max_retries": 2
+    },
+    "qwen3.8-flash": {
+      "type": "openai_compatible",
+      "base_url": "https://evamux.alibaba-inc.com/v1",
+      "base_url_env": "ENVMUX_BASE_URL",
+      "api_key_env": "ENVMUX_API_KEY",
+      "credential_file": "research-workspace/envmux.local.json",
+      "model": "qwen3.8-flash",
+      "timeout_seconds": 180,
+      "max_retries": 2
+    }
+  }
+}

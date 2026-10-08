@@ -1,0 +1,2 @@
+{"input": {"family": "crt", "parameters": {"moduli": [3, 5], "residues": [1, 2], "lo": 1, "hi": 30, "target": "minimum"}}, "expected_answer": "7"}
+{"input": {"family": "crt", "parameters": {"moduli": [3, 5], "residues": [1, 2], "lo": 1, "hi": 30, "target": "count"}}, "expected_answer": "2"}

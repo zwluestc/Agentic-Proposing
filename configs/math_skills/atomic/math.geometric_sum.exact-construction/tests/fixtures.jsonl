@@ -1,0 +1,2 @@
+{"input": {"family": "geometric_sum", "parameters": {"first": 2, "ratio_numerator": 3, "ratio_denominator": 2, "terms": 3}}, "expected_answer": "19/2"}
+{"input": {"family": "geometric_sum", "parameters": {"first": 3, "ratio_numerator": -1, "ratio_denominator": 2, "terms": 4}}, "expected_answer": "15/8"}

@@ -5,7 +5,7 @@ from typing import Any
 import json
 
 from agentic_proposing.core.models import TaskBundle
-from agentic_proposing.providers.base import TeacherProvider
+from agentic_proposing.providers.base import TeacherProvider, parse_json_object
 from agentic_proposing.skills.prompts import render_prompt
 from .verification import CheckResult
 
@@ -40,12 +40,14 @@ class VerifierVote:
 class VerifierCommittee:
     """Independent, isolated SOTA-Teacher calls following the paper's verifier semantics."""
 
-    def __init__(self, provider: TeacherProvider, voters: int = 3, second_audit: bool = True):
+    def __init__(self, provider: TeacherProvider, voters: int = 3, second_audit: bool = True,
+                 trajectory_max_chars: int | None = None):
         if voters < 1:
             raise ValueError("voters must be positive")
         self.provider = provider
         self.voters = voters
         self.second_audit = second_audit
+        self.trajectory_max_chars = trajectory_max_chars
 
     def _vote(self, bundle: TaskBundle, context: Any, mode: str) -> VerifierVote:
         task = bundle.to_dict()
@@ -53,18 +55,28 @@ class VerifierCommittee:
             task.pop("answer", None)
             task.pop("rationale", None)
             task.pop("verification", None)
+            # Construction witnesses may reveal hidden roots or intermediate values.
+            task["metadata"] = {k: v for k, v in task.get("metadata", {}).items()
+                                if k in {"options", "knowledge_dependency", "output_constraints"}}
             source = render_prompt("blind_verifier.md", task=json.dumps(task, ensure_ascii=False, indent=2))
         else:
             events = context.run_store.events.read()[-300:]
+            if self.trajectory_max_chars:
+                # Explicit pilot option: retain a bounded recent observable trace.
+                # Candidate and construction witness remain complete below.
+                events = json.dumps(events, ensure_ascii=False)[-self.trajectory_max_chars:]
             source = (
                 "Audit the final TaskBundle with privileged access to its observable proposer trajectory. "
                 "Independently solve it, flag ambiguity or underspecification, and return strict JSON with "
                 "valid, answer, ambiguities, fatal_errors, justification.\n\n"
+                "If metadata.math_spec is present, verify that EVERY declared parameter and the target "
+                "match the question exactly. A numerical witness alone does not establish question validity.\n\n"
                 + json.dumps({"task_bundle": task, "trajectory": events}, ensure_ascii=False, indent=2)
             )
-        payload = self.provider.complete_json([{"role": "user", "content": source}], temperature=0.1)
-        if not isinstance(payload, dict):
-            raise ValueError("Verifier must return an object")
+        turn = self.provider.complete([{"role": "user", "content": source}], [], temperature=0.1)
+        payload = parse_json_object(turn.content, {"valid", "answer", "ambiguities", "fatal_errors", "justification"})
+        if type(payload["valid"]) is not bool or not isinstance(payload["ambiguities"],list) or not isinstance(payload["fatal_errors"],list):
+            raise ValueError("Verifier verdict has invalid boolean/list field types")
         return VerifierVote.from_dict(payload, mode)
 
     def verify(self, bundle: TaskBundle, context: Any) -> dict[str, Any]:
@@ -83,7 +95,7 @@ class VerifierCommittee:
         blind_matches = bool(blind_is_clear and answer_consistent and _normalized_answer(blind.answer) == canonical_answer)
         audit: dict[str, Any] = {}
         if self.second_audit and majority and not (answer_consistent and blind_matches):
-            audit_payload = self.provider.complete_json(
+            audit_turn = self.provider.complete(
                 [
                     {
                         "role": "user",
@@ -102,8 +114,11 @@ class VerifierCommittee:
                         ),
                     }
                 ],
-                temperature=0.0,
+                [], temperature=0.0,
             )
+            audit_payload = parse_json_object(audit_turn.content,{"accepted","canonical_answer","objections","justification"})
+            if type(audit_payload["accepted"]) is not bool or not isinstance(audit_payload["objections"],list):
+                raise ValueError("Second-audit verdict has invalid boolean/list field types")
             audit = dict(audit_payload) if isinstance(audit_payload, dict) else {}
         accepted = majority and (
             (answer_consistent and blind_matches)
@@ -153,4 +168,3 @@ class ModelVerifierGate:
             "verifier committee accepted" if report["accepted"] else "verifier committee rejected",
             report,
         )
-

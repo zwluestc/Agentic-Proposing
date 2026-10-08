@@ -1,0 +1,2 @@
+{"input": {"family": "arithmetic_progression", "parameters": {"first": 3, "difference": 2, "start": 1, "end": 4}}, "expected_answer": "24"}
+{"input": {"family": "arithmetic_progression", "parameters": {"first": 5, "difference": -1, "start": 2, "end": 5}}, "expected_answer": "10"}

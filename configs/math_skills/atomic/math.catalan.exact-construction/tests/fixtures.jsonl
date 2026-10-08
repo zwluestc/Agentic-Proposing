@@ -1,0 +1,2 @@
+{"input": {"family": "catalan", "parameters": {"semilength": 4}}, "expected_answer": "14"}
+{"input": {"family": "catalan", "parameters": {"semilength": 5}}, "expected_answer": "42"}

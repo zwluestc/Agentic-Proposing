@@ -52,3 +52,24 @@ def parse_json_payload(text: str) -> dict[str, Any] | list[Any]:
                 pass
         raise ValueError("Teacher response did not contain valid JSON")
 
+
+def parse_json_object(text: str, required_keys: set[str]) -> dict[str, Any]:
+    """Extract a complete schema-bearing object, ignoring prose arrays/braces.
+
+    A verifier's prose can contain an earlier [] or set literal. Taking the first
+    JSON fragment would mistake that fragment for the actual final verdict.
+    """
+    decoder = json.JSONDecoder()
+    candidates = []
+    for index,char in enumerate(text):
+        if char != "{":
+            continue
+        try:
+            value,_ = decoder.raw_decode(text[index:])
+        except json.JSONDecodeError:
+            continue
+        if isinstance(value,dict) and required_keys <= value.keys():
+            candidates.append(value)
+    if not candidates:
+        raise ValueError("Verifier response has no complete schema-bearing JSON object")
+    return candidates[-1]

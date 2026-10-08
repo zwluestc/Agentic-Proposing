@@ -128,9 +128,23 @@ class ContextManager:
         system = BASE_SYSTEM_PROMPT
         if self.skill_source:
             summaries = self.skill_source.discovery_summaries()
-            system += "\n\n# Discoverable Skill Metadata\n" + json.dumps(
-                summaries, ensure_ascii=False, sort_keys=True
-            )[:18_000]
+            summaries.sort(key=lambda item:(item["skill_id"] not in state.active_skill_ids,item["skill_id"]))
+            encoded = json.dumps(summaries,ensure_ascii=False,sort_keys=True)
+            if len(encoded) > 18_000:
+                summaries = [{key:item[key] for key in ("skill_id","version","status")}
+                             | {"description":item.get("description","")[:160]}
+                             for item in summaries]
+                # Keep valid JSON rather than cutting through a metadata entry.
+                kept = []
+                for item in summaries:
+                    if len(json.dumps(kept+[item],ensure_ascii=False)) > 18_000:
+                        break
+                    kept.append(item)
+                encoded = json.dumps(kept,ensure_ascii=False,sort_keys=True)
+                system += "\nMetadata is abbreviated; use skill_search/skill_load for full contracts."
+                if len(kept) < len(summaries):
+                    system += f" {len(summaries)-len(kept)} additional Skills are discoverable through skill_search."
+            system += "\n\n# Discoverable Skill Metadata\n" + encoded
         system += self._skill_context(state)
         messages: list[dict[str, Any]] = [
             {"role": "system", "content": system},
@@ -144,4 +158,3 @@ class ContextManager:
         messages.extend(state.transcript)
         tools = self.tool_registry.model_tools(state.enabled_tool_names)
         return messages, tools
-

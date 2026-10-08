@@ -1,0 +1,25 @@
+{
+  "skill_id": "math.revision.failure-driven",
+  "name": "Evidence-driven error revision",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "curated",
+  "description": "When a real tool or verifier failure occurs, identify the specific violated condition, preserve valid constraints, edit the draft, rerun its exact numerical verifier and self_check_artifact. Do not fabricate failures. If all checks pass, finalize without unnecessary revision. Keep a concise before/after change note.",
+  "intent": "Evidence-driven error revision",
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "source_refs": [
+    {
+      "type": "hand_authored"
+    }
+  ],
+  "metrics": {
+    "scope": "Process guidance; not independently replay-certified"
+  },
+  "tags": [
+    "math",
+    "process"
+  ]
+}

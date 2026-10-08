@@ -1,0 +1,2 @@
+{"input": {"family": "paths", "parameters": {"width": 2, "height": 2, "forbidden": [[1, 1]]}}, "expected_answer": "2"}
+{"input": {"family": "paths", "parameters": {"width": 2, "height": 2, "forbidden": []}}, "expected_answer": "6"}

@@ -1,0 +1,2 @@
+{"input": {"family": "multiplicative_order", "parameters": {"base": 2, "modulus": 7}}, "expected_answer": "3"}
+{"input": {"family": "multiplicative_order", "parameters": {"base": 3, "modulus": 10}}, "expected_answer": "4"}

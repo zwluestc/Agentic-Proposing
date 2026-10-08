@@ -1,0 +1,45 @@
+{
+  "skill_id": "math.diophantine_nonnegative.exact-construction",
+  "name": "Nonnegative linear Diophantine counts",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "verified",
+  "description": "Count ORDERED pairs of NONNEGATIVE integers (x,y) satisfying a*x+b*y=total, with positive a,b. Zero values are permitted and must not be discarded.",
+  "intent": "Nonnegative linear Diophantine counts",
+  "triggers": [
+    "diophantine_nonnegative"
+  ],
+  "inputs": [
+    "metadata.math_spec.parameters"
+  ],
+  "outputs": [
+    "scalar exact answer"
+  ],
+  "difficulty_effect": {
+    "mechanism": "constraint interaction; parameter dependent, not measured"
+  },
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "evidence_contract": {
+    "knowledge_dependency": false
+  },
+  "source_refs": [
+    {
+      "type": "hand_authored",
+      "source": "scripts/prepare_math_training.py"
+    }
+  ],
+  "metrics": {
+    "passed": true,
+    "validation_type": "exact_constructor_fixture_replay",
+    "fixtures_passed": 2,
+    "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+  },
+  "tags": [
+    "math",
+    "diophantine_nonnegative",
+    "exact"
+  ]
+}

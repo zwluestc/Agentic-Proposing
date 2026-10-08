@@ -22,7 +22,7 @@ Zhengbo Jiao<sup>1,2,3</sup>, Shaobo Wang<sup>2</sup>, Zifan Zhang<sup>4</sup>, 
 
 </div>
 
-> **TL;DR.** Agentic Proposing reframes reasoning-data synthesis as a closed-loop sequential decision process. A proposer dynamically selects and composes modular Agent Skills, reasons over intermediate states, invokes tools, prunes incompatible skills, and verifies a candidate before submission. The paper trains **Agentic-Proposer-4B** with Agentic SFT and Multi-Granularity Policy Optimization (MGPO); this initial code release exposes the proposing loop, skill system, tools, evidence layer, recursive composition, and verification harness.
+> **TL;DR.** Agentic Proposing reframes reasoning-data synthesis as a closed-loop sequential decision process. A proposer dynamically selects and composes modular Agent Skills, reasons over intermediate states, invokes tools, prunes incompatible skills, and verifies a candidate before submission. This checkout includes the proposing harness plus local Agentic SFT, proposer GRPO, MGPO, and downstream Solver GRPO training scripts.
 
 ## News
 
@@ -205,10 +205,10 @@ The proposer combines multi-domain skills, detects a contradiction between an an
 
 </details>
 
-## Initial Code Release
+## Implementation Status
 
 > [!IMPORTANT]
-> The paper contains the full three-stage training recipe. The **current public release focuses on the inference-time proposing system and research harness**. Agentic SFT, MGPO training code, official training data, and official checkpoints are not included in this initial release.
+> The upstream initial release focused on the inference-time research harness. This checkout adds executable Agentic SFT, proposer GRPO, MGPO, and downstream Solver GRPO scripts. Official training data and official checkpoints are still unavailable; see [training instructions](docs/TRAINING.md).
 
 | Paper or system component | Current release | Implementation |
 |---|:---:|---|
@@ -221,8 +221,10 @@ The proposer combines multi-domain skills, detects a contradiction between an an
 | Workspace, retrieval, Python, web, and external tools | ✅ | `src/agentic_proposing/tools/` |
 | Self-check, terminal gates, optional model committee | ✅ | `src/agentic_proposing/artifacts/` |
 | OpenAI-compatible and Anthropic Teacher adapters | ✅ | `src/agentic_proposing/providers/` |
-| Agentic SFT | Not released | Paper Stage 2 |
-| MGPO training | Not released | Paper Stage 3 |
+| Agentic SFT | Local implementation | `src/agentic_proposing/training/` |
+| Proposer GRPO | Local implementation | `src/agentic_proposing/training/grpo_objective.py` |
+| MGPO training | Local implementation | `src/agentic_proposing/training/` |
+| Downstream Solver GRPO | Local implementation | `src/agentic_proposing/training/solver_grpo.py` |
 | Official data and checkpoints | Not released | - |
 
 ### Engineering extensions in this release

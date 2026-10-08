@@ -1,0 +1,2 @@
+{"input": {"family": "linear", "parameters": {"a": 2, "b": 1, "c": 1, "d": -1, "r": 11, "s": 1, "u": 1, "v": 1}}, "expected_answer": "7"}
+{"input": {"family": "linear", "parameters": {"a": 2, "b": 1, "c": 1, "d": -1, "r": 13, "s": 2, "u": 1, "v": 1}}, "expected_answer": "8"}

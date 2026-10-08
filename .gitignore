@@ -5,6 +5,7 @@ __pycache__/
 htmlcov/
 
 .venv/
+.venv-proposer/
 build/
 dist/
 *.egg-info/
@@ -14,7 +15,12 @@ dist/
 case_runs/
 tmp/
 demo-workspace/
-research-workspace/
+research-workspace/*
+!research-workspace/math-proposer/
+research-workspace/math-proposer/*
+!research-workspace/math-proposer/training/
+research-workspace/math-proposer/training/*
+!research-workspace/math-proposer/training/sft_trajectories.jsonl
 .idea/
 .vscode/
 .DS_Store

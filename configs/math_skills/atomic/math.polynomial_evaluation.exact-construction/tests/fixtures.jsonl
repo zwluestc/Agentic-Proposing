@@ -1,0 +1,2 @@
+{"input": {"family": "polynomial_evaluation", "parameters": {"coefficients": [1, -2, 3], "x": 2}}, "expected_answer": "9"}
+{"input": {"family": "polynomial_evaluation", "parameters": {"coefficients": [0, 1, 0, 1], "x": -2}}, "expected_answer": "-10"}

@@ -1,0 +1,25 @@
+{
+  "skill_id": "math.validation.domain-check",
+  "name": "Domain and target validation",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "curated",
+  "description": "Check inclusivity, integrality, indexing, denominator nonzero, reachability and feasibility as appropriate. A unique answer value does not require a unique optimizer/path. Compare every witness parameter with the question. Request exact arithmetic and no unstated assumptions. Inspect the returned verifier result before submitting.",
+  "intent": "Domain and target validation",
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "source_refs": [
+    {
+      "type": "hand_authored"
+    }
+  ],
+  "metrics": {
+    "scope": "Process guidance; not independently replay-certified"
+  },
+  "tags": [
+    "math",
+    "process"
+  ]
+}

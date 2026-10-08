@@ -1,0 +1,45 @@
+{
+  "skill_id": "math.valuation_factorial.exact-construction",
+  "name": "Prime valuations in factorials",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "verified",
+  "description": "Ask for the largest nonnegative exponent e for which prime^e divides n!. The factor prime must genuinely be prime; include all powers of it in the count.",
+  "intent": "Prime valuations in factorials",
+  "triggers": [
+    "valuation_factorial"
+  ],
+  "inputs": [
+    "metadata.math_spec.parameters"
+  ],
+  "outputs": [
+    "scalar exact answer"
+  ],
+  "difficulty_effect": {
+    "mechanism": "constraint interaction; parameter dependent, not measured"
+  },
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "evidence_contract": {
+    "knowledge_dependency": false
+  },
+  "source_refs": [
+    {
+      "type": "hand_authored",
+      "source": "scripts/prepare_math_training.py"
+    }
+  ],
+  "metrics": {
+    "passed": true,
+    "validation_type": "exact_constructor_fixture_replay",
+    "fixtures_passed": 2,
+    "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+  },
+  "tags": [
+    "math",
+    "valuation_factorial",
+    "exact"
+  ]
+}

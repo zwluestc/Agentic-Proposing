@@ -1,0 +1,2 @@
+{"input": {"family": "permutation_inversions", "parameters": {"n": 3, "inversions": 1}}, "expected_answer": "2"}
+{"input": {"family": "permutation_inversions", "parameters": {"n": 4, "inversions": 2}}, "expected_answer": "5"}

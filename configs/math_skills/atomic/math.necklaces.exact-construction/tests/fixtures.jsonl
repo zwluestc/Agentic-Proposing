@@ -1,0 +1,2 @@
+{"input": {"family": "necklaces", "parameters": {"length": 3, "colors": 2}}, "expected_answer": "4"}
+{"input": {"family": "necklaces", "parameters": {"length": 4, "colors": 2}}, "expected_answer": "6"}

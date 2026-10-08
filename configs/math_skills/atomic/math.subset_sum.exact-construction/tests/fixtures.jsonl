@@ -1,0 +1,2 @@
+{"input": {"family": "subset_sum", "parameters": {"values": [1, 2, 3, 4], "size": 2, "total": 5}}, "expected_answer": "2"}
+{"input": {"family": "subset_sum", "parameters": {"values": [1, 1, 2], "size": 2, "total": 3}}, "expected_answer": "2"}

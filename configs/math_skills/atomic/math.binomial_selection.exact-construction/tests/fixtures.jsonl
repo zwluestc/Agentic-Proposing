@@ -1,0 +1,2 @@
+{"input": {"family": "binomial_selection", "parameters": {"n": 5, "k": 2, "m": 4, "l": 1}}, "expected_answer": "40"}
+{"input": {"family": "binomial_selection", "parameters": {"n": 6, "k": 3, "m": 3, "l": 2}}, "expected_answer": "60"}

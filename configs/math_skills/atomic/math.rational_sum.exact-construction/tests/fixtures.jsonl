@@ -1,0 +1,2 @@
+{"input": {"family": "rational_sum", "parameters": {"start": 1, "end": 3, "shift": 1, "scale": 1}}, "expected_answer": "3/4"}
+{"input": {"family": "rational_sum", "parameters": {"start": 2, "end": 4, "shift": 1, "scale": 2}}, "expected_answer": "3/5"}

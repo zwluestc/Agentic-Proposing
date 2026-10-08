@@ -1,0 +1,2 @@
+{"input": {"family": "integer_triangles", "parameters": {"perimeter": 12}}, "expected_answer": "3"}
+{"input": {"family": "integer_triangles", "parameters": {"perimeter": 9}}, "expected_answer": "3"}

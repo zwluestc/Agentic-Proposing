@@ -1,0 +1,17 @@
+{
+  "data_file": "research-workspace/math-proposer/training/sft_trajectories.jsonl",
+  "sha256": "ac1c845e7144a1847c3a394d261db900baab4255ccc09a8da7013f0635aa133c",
+  "accepted_trajectories": 136,
+  "action_samples": 1543,
+  "teacher_models": {
+    "qwen3.5-flash": 69,
+    "qwen3.7-plus": 67
+  },
+  "verifier_models": {
+    "qwen3.5-flash": 136
+  },
+  "training_minimum": 136,
+  "collection_target_original": 500,
+  "collection_stopped_by_user": true,
+  "note": "User selected the current accepted dataset for training; historical per-record model provenance retained. Failed trajectories are excluded."
+}

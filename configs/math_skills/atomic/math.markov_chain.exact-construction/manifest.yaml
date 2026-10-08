@@ -1,0 +1,45 @@
+{
+  "skill_id": "math.markov_chain.exact-construction",
+  "name": "Exact finite-state transition probabilities",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "verified",
+  "description": "Specify a square transition matrix of exact rational probabilities with rows summing to one. Row i,column j means P(next=j | current=i); states are indexed from zero. Starting at start, ask for probability of target after exactly steps transitions.",
+  "intent": "Exact finite-state transition probabilities",
+  "triggers": [
+    "markov_chain"
+  ],
+  "inputs": [
+    "metadata.math_spec.parameters"
+  ],
+  "outputs": [
+    "scalar exact answer"
+  ],
+  "difficulty_effect": {
+    "mechanism": "constraint interaction; parameter dependent, not measured"
+  },
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "evidence_contract": {
+    "knowledge_dependency": false
+  },
+  "source_refs": [
+    {
+      "type": "hand_authored",
+      "source": "scripts/prepare_math_training.py"
+    }
+  ],
+  "metrics": {
+    "passed": true,
+    "validation_type": "exact_constructor_fixture_replay",
+    "fixtures_passed": 2,
+    "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+  },
+  "tags": [
+    "math",
+    "markov_chain",
+    "exact"
+  ]
+}

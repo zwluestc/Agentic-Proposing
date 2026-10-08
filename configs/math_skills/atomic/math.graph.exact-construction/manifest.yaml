@@ -1,0 +1,45 @@
+{
+  "skill_id": "math.graph.exact-construction",
+  "name": "Weighted graph shortest paths",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "verified",
+  "description": "Specify a finite graph with vertices 0..vertices-1 and the COMPLETE weighted edge list. State directedness and ask for the shortest-distance VALUE from source to target. Multiple optimal paths do not invalidate a unique distance.",
+  "intent": "Weighted graph shortest paths",
+  "triggers": [
+    "graph"
+  ],
+  "inputs": [
+    "metadata.math_spec.parameters"
+  ],
+  "outputs": [
+    "scalar exact answer"
+  ],
+  "difficulty_effect": {
+    "mechanism": "constraint interaction; parameter dependent, not measured"
+  },
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "evidence_contract": {
+    "knowledge_dependency": false
+  },
+  "source_refs": [
+    {
+      "type": "hand_authored",
+      "source": "scripts/prepare_math_training.py"
+    }
+  ],
+  "metrics": {
+    "passed": true,
+    "validation_type": "exact_constructor_fixture_replay",
+    "fixtures_passed": 2,
+    "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+  },
+  "tags": [
+    "math",
+    "graph",
+    "exact"
+  ]
+}

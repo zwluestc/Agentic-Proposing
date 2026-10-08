@@ -1,0 +1,25 @@
+{
+  "skill_id": "math.validation.independent-recompute",
+  "name": "Independent numerical cross-check",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "curated",
+  "description": "For small instances, recompute using a second approach such as enumeration versus dynamic programming, substitution versus elimination, or a direct sum versus a closed form. Use actual tool outputs and report mismatches; do not invent agreement.",
+  "intent": "Independent numerical cross-check",
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "source_refs": [
+    {
+      "type": "hand_authored"
+    }
+  ],
+  "metrics": {
+    "scope": "Process guidance; not independently replay-certified"
+  },
+  "tags": [
+    "math",
+    "process"
+  ]
+}

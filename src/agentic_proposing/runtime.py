@@ -66,6 +66,8 @@ def build_runtime(
     config: RuntimeConfig | None = None,
     *,
     permission_resolver: PermissionResolver | None = None,
+    verifier_provider: TeacherProvider | None = None,
+    action_observer: Callable[[dict[str, Any]], None] | None = None,
 ) -> Runtime:
     config = config or RuntimeConfig()
     layout = WorkspaceLayout(Path(workspace).resolve())
@@ -77,12 +79,17 @@ def build_runtime(
 
     deterministic_pipeline = VerificationPipeline()
     submission_pipeline = VerificationPipeline()
+    if bool(config.verification.get("require_math_spec", False)):
+        from .artifacts.math_gate import MathConstructionGate
+        deterministic_pipeline.gates.append(MathConstructionGate())
+        submission_pipeline.gates.append(MathConstructionGate())
     verifier_committee: VerifierCommittee | None = None
     if bool(config.verification.get("model_committee_enabled", False)):
         verifier_committee = VerifierCommittee(
-            provider,
+            verifier_provider or provider,
             voters=int(config.verification.get("model_voters", 3)),
             second_audit=bool(config.verification.get("second_audit", True)),
+            trajectory_max_chars=config.verification.get("trajectory_max_chars"),
         )
         submission_pipeline.gates.append(ModelVerifierGate(verifier_committee))
 
@@ -206,6 +213,7 @@ def build_runtime(
         temperature=float(config.harness.get("temperature", 0.2)),
         max_tokens_per_turn=int(config.harness.get("max_tokens_per_turn", 8192)),
         services=services,
+        action_observer=action_observer,
     )
     return Runtime(
         layout,

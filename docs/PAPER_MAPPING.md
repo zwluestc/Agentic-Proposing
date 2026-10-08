@@ -20,7 +20,9 @@ Paper: [Agentic Proposing: Enhancing Large Language Model Reasoning via Composit
 | Dynamic pruning | active Skill list may be rewritten; incompatible composition is rejected |
 | Verifier privilege | deterministic privileged gates plus optional isolated Teacher votes, a blind solver, majority agreement, and second audit |
 | Prober | intentionally outside the minimal core; can be added as another verification tool |
-| Agentic SFT/MGPO | intentionally not implemented; a SOTA Teacher runs the policy directly |
+| Agentic SFT | `training.runner collect-sft` plus `sft`: accepted observable tool trajectories and masked-token behavioral cloning |
+| MGPO | `training.rl` and `training.mgpo_objective`: curriculum, layered rewards, group/stage advantages, implicit reward, asymmetric gate, token-normalized update |
+| Downstream Solver GRPO | `training.solver_grpo`: final question/answer pairs only, Appendix 7.3 hyperparameters |
 
 ## Deliberate extensions
 
@@ -33,4 +35,3 @@ The paper composes Skills during proposing but does not fully specify recursive 
 5. Emergent candidates remain staged and require deduplication, replay evidence, and explicit promotion.
 
 The paper's code tool is generalized into a typed Tool protocol. Workspace inspection, textbook parsing, local evidence retrieval, configurable web search, Web-to-Evidence ingestion, isolated calculations, persistent analysis sessions, trusted Skill scripts, contamination checks, dynamic external providers, and Skill Graph operations all use the same dispatch/hook/event/permission mechanism. These harness extensions generalize Figure 1's executable action without changing the paper's proposing objective.
-

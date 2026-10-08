@@ -1,0 +1,45 @@
+{
+  "skill_id": "math.optimization.exact-construction",
+  "name": "Finite integer optimization",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "verified",
+  "description": "Maximize u*x+v*y for integer 0<=x,y<=bound under a*x+b*y<=budget and c*x+d*y<=budget. Ask only for the optimal VALUE, which remains unique even if maximizers tie. Make integrality and both constraints explicit.",
+  "intent": "Finite integer optimization",
+  "triggers": [
+    "optimization"
+  ],
+  "inputs": [
+    "metadata.math_spec.parameters"
+  ],
+  "outputs": [
+    "scalar exact answer"
+  ],
+  "difficulty_effect": {
+    "mechanism": "constraint interaction; parameter dependent, not measured"
+  },
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "evidence_contract": {
+    "knowledge_dependency": false
+  },
+  "source_refs": [
+    {
+      "type": "hand_authored",
+      "source": "scripts/prepare_math_training.py"
+    }
+  ],
+  "metrics": {
+    "passed": true,
+    "validation_type": "exact_constructor_fixture_replay",
+    "fixtures_passed": 2,
+    "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+  },
+  "tags": [
+    "math",
+    "optimization",
+    "exact"
+  ]
+}

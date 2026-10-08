@@ -1,0 +1,2 @@
+{"input": {"family": "involutions", "parameters": {"n": 4}}, "expected_answer": "10"}
+{"input": {"family": "involutions", "parameters": {"n": 5}}, "expected_answer": "26"}

@@ -1,0 +1,25 @@
+{
+  "skill_id": "math.validation.uniqueness",
+  "name": "Unique answer versus unique witness",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "curated",
+  "description": "Check that the requested scalar is uniquely determined. Several optimal paths, optimizers or valid objects can share one scalar value; do not reject such tasks unnecessarily. If requesting a minimum, ensure the feasible set is nonempty.",
+  "intent": "Unique answer versus unique witness",
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "source_refs": [
+    {
+      "type": "hand_authored"
+    }
+  ],
+  "metrics": {
+    "scope": "Process guidance; not independently replay-certified"
+  },
+  "tags": [
+    "math",
+    "process"
+  ]
+}

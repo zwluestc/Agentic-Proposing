@@ -1,0 +1,25 @@
+{
+  "skill_id": "math.validation.counting-conventions",
+  "name": "Counting convention audit",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "curated",
+  "description": "Check labeled versus unlabeled, ordered versus unordered, replacement versus no replacement, rotation versus reflection, identical values versus distinct indexed objects, and whether fixed points/zero values are allowed. Make the chosen convention explicit.",
+  "intent": "Counting convention audit",
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "source_refs": [
+    {
+      "type": "hand_authored"
+    }
+  ],
+  "metrics": {
+    "scope": "Process guidance; not independently replay-certified"
+  },
+  "tags": [
+    "math",
+    "process"
+  ]
+}

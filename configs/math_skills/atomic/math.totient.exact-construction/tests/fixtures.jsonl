@@ -1,0 +1,2 @@
+{"input": {"family": "totient", "parameters": {"n": 12}}, "expected_answer": "4"}
+{"input": {"family": "totient", "parameters": {"n": 35}}, "expected_answer": "24"}

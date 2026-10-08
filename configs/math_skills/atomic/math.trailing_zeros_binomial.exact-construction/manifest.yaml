@@ -1,0 +1,45 @@
+{
+  "skill_id": "math.trailing_zeros_binomial.exact-construction",
+  "name": "Decimal trailing zeros of binomial coefficients",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "verified",
+  "description": "Ask for the number of trailing base-10 zeros in the integer binomial coefficient C(n,k). Count zeros of the coefficient itself, not of n! alone.",
+  "intent": "Decimal trailing zeros of binomial coefficients",
+  "triggers": [
+    "trailing_zeros_binomial"
+  ],
+  "inputs": [
+    "metadata.math_spec.parameters"
+  ],
+  "outputs": [
+    "scalar exact answer"
+  ],
+  "difficulty_effect": {
+    "mechanism": "constraint interaction; parameter dependent, not measured"
+  },
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "evidence_contract": {
+    "knowledge_dependency": false
+  },
+  "source_refs": [
+    {
+      "type": "hand_authored",
+      "source": "scripts/prepare_math_training.py"
+    }
+  ],
+  "metrics": {
+    "passed": true,
+    "validation_type": "exact_constructor_fixture_replay",
+    "fixtures_passed": 2,
+    "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+  },
+  "tags": [
+    "math",
+    "trailing_zeros_binomial",
+    "exact"
+  ]
+}

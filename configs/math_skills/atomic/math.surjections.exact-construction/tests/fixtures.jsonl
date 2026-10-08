@@ -1,0 +1,2 @@
+{"input": {"family": "surjections", "parameters": {"domain_size": 3, "codomain_size": 2}}, "expected_answer": "6"}
+{"input": {"family": "surjections", "parameters": {"domain_size": 4, "codomain_size": 3}}, "expected_answer": "36"}

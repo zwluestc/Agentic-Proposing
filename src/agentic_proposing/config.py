@@ -4,6 +4,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 import json
+import os
 
 from .providers.base import TeacherProvider
 from .providers.anthropic import AnthropicTeacher
@@ -47,16 +48,37 @@ class RuntimeConfig:
         return cls(**{key: dict(raw.get(key, {})) for key in allowed})
 
 
+def resolve_provider_config(config: dict[str, Any]) -> dict[str, Any]:
+    """Resolve local credentials without mutating or exporting the public config."""
+    resolved = dict(config)
+    local: dict[str, Any] = {}
+    credential_file = config.get("credential_file")
+    if credential_file and Path(credential_file).is_file():
+        local = load_mapping(credential_file)
+    env_name = str(config.get("api_key_env", "OPENAI_API_KEY"))
+    resolved["api_key"] = config.get("api_key") or os.environ.get(env_name) or local.get("api_key")
+    base_env = str(config.get("base_url_env", ""))
+    base_url = os.environ.get(base_env) or config.get("base_url") or local.get("base_url")
+    if base_url:
+        resolved["base_url"] = base_url
+    return resolved
+
+
 def create_provider(config: dict[str, Any]) -> TeacherProvider:
+    config = resolve_provider_config(config)
     kind = str(config.get("type", "openai_compatible"))
     if kind == "openai_compatible":
         return OpenAICompatibleTeacher(
-            base_url=str(config.get("base_url", "https://api.openai.com/v1")),
+            base_url=str(os.environ.get(str(config.get("base_url_env", "")), "") or config.get("base_url", "https://api.openai.com/v1")),
             model=str(config["model"]),
             api_key=config.get("api_key"),
             api_key_env=str(config.get("api_key_env", "OPENAI_API_KEY")),
             timeout_seconds=int(config.get("timeout_seconds", 180)),
             extra_headers=dict(config.get("extra_headers", {})),
+            extra_body=dict(config.get("extra_body", {})),
+            ca_bundle=config.get("ca_bundle") or os.environ.get("SSL_CERT_FILE"),
+            max_retries=int(config.get("max_retries", 2)),
+            max_output_tokens=config.get("max_output_tokens"),
         )
     if kind == "anthropic":
         return AnthropicTeacher(
@@ -67,4 +89,3 @@ def create_provider(config: dict[str, Any]) -> TeacherProvider:
             timeout_seconds=int(config.get("timeout_seconds", 180)),
         )
     raise ValueError(f"Unknown provider type: {kind}")
-

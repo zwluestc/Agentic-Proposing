@@ -1,0 +1,2 @@
+{"input": {"family": "valuation_factorial", "parameters": {"n": 10, "prime": 2}}, "expected_answer": "8"}
+{"input": {"family": "valuation_factorial", "parameters": {"n": 25, "prime": 5}}, "expected_answer": "6"}

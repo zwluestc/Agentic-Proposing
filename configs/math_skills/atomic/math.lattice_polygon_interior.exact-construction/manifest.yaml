@@ -1,0 +1,45 @@
+{
+  "skill_id": "math.lattice_polygon_interior.exact-construction",
+  "name": "Interior lattice points of simple polygons",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "verified",
+  "description": "Give 3-12 distinct integer vertices of a SIMPLE polygon in boundary order, without repeating the closing vertex or using adjacent collinear edges. Count strictly INTERIOR lattice points, excluding the boundary.",
+  "intent": "Interior lattice points of simple polygons",
+  "triggers": [
+    "lattice_polygon_interior"
+  ],
+  "inputs": [
+    "metadata.math_spec.parameters"
+  ],
+  "outputs": [
+    "scalar exact answer"
+  ],
+  "difficulty_effect": {
+    "mechanism": "constraint interaction; parameter dependent, not measured"
+  },
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "evidence_contract": {
+    "knowledge_dependency": false
+  },
+  "source_refs": [
+    {
+      "type": "hand_authored",
+      "source": "scripts/prepare_math_training.py"
+    }
+  ],
+  "metrics": {
+    "passed": true,
+    "validation_type": "exact_constructor_fixture_replay",
+    "fixtures_passed": 2,
+    "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+  },
+  "tags": [
+    "math",
+    "lattice_polygon_interior",
+    "exact"
+  ]
+}

@@ -2,7 +2,7 @@
 
 ## Scope
 
-This is a codebase-level reproduction of Agentic Proposing. It does not reproduce MGPO and does not attempt to be a terminal product. A frontier model supplies the Teacher, Proposer, Composer, Extractor, and optional Verifier policies. The repository supplies the harness, filesystem environment, tools, gates, provenance, and recursion.
+This is a codebase-level reproduction of Agentic Proposing. A frontier model can supply the Teacher, Composer, Extractor, and optional Verifier policies. The repository supplies the harness, filesystem environment, tools, gates, provenance, recursion, and optional Agentic SFT/MGPO training path. The post-trained local model supplies the Proposer policy during MGPO rollout; see [TRAINING.md](TRAINING.md).
 
 ## Two loops
 
@@ -97,4 +97,3 @@ This deliberately separates:
 ## Observable traces
 
 The implementation does not require or store private hidden chain-of-thought. It stores structured decisions, tool calls, results, state mutations, verifier failures, and accepted artifacts. This is sufficient for audit and reverse Skill mining.
-

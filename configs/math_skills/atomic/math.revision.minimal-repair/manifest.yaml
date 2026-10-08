@@ -1,0 +1,25 @@
+{
+  "skill_id": "math.revision.minimal-repair",
+  "name": "Minimal constraint-preserving repair",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "curated",
+  "description": "When a defect is verified, change the smallest necessary parameter, target or wording. Preserve unaffected constraints, keep metadata.math_spec synchronized with the new question, rerun the exact calculator and self-check, and summarize the actual change.",
+  "intent": "Minimal constraint-preserving repair",
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "source_refs": [
+    {
+      "type": "hand_authored"
+    }
+  ],
+  "metrics": {
+    "scope": "Process guidance; not independently replay-certified"
+  },
+  "tags": [
+    "math",
+    "process"
+  ]
+}

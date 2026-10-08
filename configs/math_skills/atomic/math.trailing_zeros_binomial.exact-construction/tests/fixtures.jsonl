@@ -1,0 +1,2 @@
+{"input": {"family": "trailing_zeros_binomial", "parameters": {"n": 10, "k": 2}}, "expected_answer": "0"}
+{"input": {"family": "trailing_zeros_binomial", "parameters": {"n": 25, "k": 12}}, "expected_answer": "2"}

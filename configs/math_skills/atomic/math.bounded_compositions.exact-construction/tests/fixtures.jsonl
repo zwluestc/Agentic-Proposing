@@ -1,0 +1,2 @@
+{"input": {"family": "bounded_compositions", "parameters": {"variables": 3, "cap": 2, "total": 3}}, "expected_answer": "7"}
+{"input": {"family": "bounded_compositions", "parameters": {"variables": 2, "cap": 3, "total": 4}}, "expected_answer": "3"}

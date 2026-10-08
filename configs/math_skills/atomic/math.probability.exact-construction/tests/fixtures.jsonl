@@ -1,0 +1,2 @@
+{"input": {"family": "probability", "parameters": {"dice": 2, "sides": 6, "threshold": 10, "target_sum": 12}}, "expected_answer": "1/6"}
+{"input": {"family": "probability", "parameters": {"dice": 2, "sides": 2, "threshold": 3, "target_sum": 3}}, "expected_answer": "2/3"}

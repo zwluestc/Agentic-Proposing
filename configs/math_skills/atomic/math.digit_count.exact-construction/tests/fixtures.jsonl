@@ -1,0 +1,2 @@
+{"input": {"family": "digit_count", "parameters": {"length": 3, "alphabet": 2, "modulus": 3, "residue": 2, "leading_zero": false}}, "expected_answer": "1"}
+{"input": {"family": "digit_count", "parameters": {"length": 2, "alphabet": 3, "modulus": 2, "residue": 1, "leading_zero": true}}, "expected_answer": "4"}

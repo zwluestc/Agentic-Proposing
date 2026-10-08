@@ -1,0 +1,2 @@
+{"input": {"family": "circumradius_squared", "parameters": {"points": [[0, 0], [3, 0], [0, 4]]}}, "expected_answer": "25/4"}
+{"input": {"family": "circumradius_squared", "parameters": {"points": [[0, 0], [1, 0], [0, 1]]}}, "expected_answer": "1/2"}

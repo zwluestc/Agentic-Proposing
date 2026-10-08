@@ -16,9 +16,17 @@ dependencies = []
 yaml = ["PyYAML>=6.0"]
 pdf = ["pypdf>=5.0"]
 dev = ["pytest>=8.0", "pytest-cov>=5.0", "PyYAML>=6.0", "pypdf>=5.0"]
+training = [
+  "torch>=2.4",
+  "transformers>=4.56,<5",
+  "accelerate>=1.4",
+  "datasets>=3.0",
+  "trl==0.25.0",
+]
 
 [project.scripts]
 agentic-proposing = "agentic_proposing.cli:main"
+agentic-proposing-train = "agentic_proposing.training.runner:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
@@ -32,4 +40,3 @@ agentic_proposing = ["prompts/*.md"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
-

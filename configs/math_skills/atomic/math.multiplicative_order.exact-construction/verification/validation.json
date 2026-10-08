@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "validation_type": "exact_constructor_fixture_replay",
+  "fixtures_passed": 2,
+  "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+}

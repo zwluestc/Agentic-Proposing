@@ -1,0 +1,2 @@
+{"input": {"family": "divisor_sum", "parameters": {"n": 12, "power": 1}}, "expected_answer": "28"}
+{"input": {"family": "divisor_sum", "parameters": {"n": 6, "power": 2}}, "expected_answer": "50"}

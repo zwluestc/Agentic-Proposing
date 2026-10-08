@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 import json
 
 from .context import ContextManager
@@ -37,6 +37,7 @@ class AgentHarness:
         temperature: float = 0.2,
         max_tokens_per_turn: int = 8192,
         services: dict[str, Any] | None = None,
+        action_observer: Callable[[dict[str, Any]], None] | None = None,
     ):
         self.provider = provider
         self.dispatcher = dispatcher
@@ -47,6 +48,7 @@ class AgentHarness:
         self.temperature = temperature
         self.max_tokens_per_turn = max_tokens_per_turn
         self.services = dict(services or {})
+        self.action_observer = action_observer
 
     def run(self, objective: str, state: RunState | None = None) -> HarnessResult:
         self.layout.initialize()
@@ -69,6 +71,7 @@ class AgentHarness:
                     temperature=self.temperature,
                     max_tokens=self.max_tokens_per_turn,
                 )
+                observation_stage = state.stage.value
                 run_store.events.append(
                     Event(
                         "model_turn",
@@ -99,6 +102,7 @@ class AgentHarness:
                     ]
                 state.transcript.append(assistant_message)
                 self.hooks.emit(HookEvent.POST_MODEL, {"turn": state.turn, "model_turn": jsonable(turn)})
+                results: list[ToolResult] = []
                 if not turn.tool_calls:
                     state.transcript.append(
                         {
@@ -135,6 +139,23 @@ class AgentHarness:
                             state.status = "completed"
                             state.stage = Stage.COMPLETE
                             break
+                if self.action_observer is not None:
+                    self.action_observer({
+                        "run_id": state.run_id,
+                        "turn": state.turn,
+                        "stage": observation_stage,
+                        "observation": messages,
+                        "tools": tools,
+                        "action": {
+                            "content": turn.content,
+                            "tool_calls": [
+                                {"name": call.name, "arguments": call.arguments}
+                                for call in turn.tool_calls
+                            ],
+                        },
+                        "policy_raw": turn.raw if "completion_token_ids" in turn.raw else {},
+                        "tool_results": [jsonable(result) for result in results],
+                    })
                 run_store.checkpoint(state)
                 run_store.save_state(state)
                 if terminal:
@@ -156,4 +177,3 @@ class AgentHarness:
         self.hooks.emit(HookEvent.SESSION_END, {"state": state.to_dict()})
         run_store.events.append(Event("session_ended", state.run_id, {"status": state.status}))
         return HarnessResult(state.run_id, state.status, state.turn, terminal, state)
-

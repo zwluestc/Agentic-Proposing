@@ -1,0 +1,2 @@
+{"input": {"family": "urn_hypergeometric", "parameters": {"red": 3, "blue": 2, "draws": 2, "target_red": 1}}, "expected_answer": "3/5"}
+{"input": {"family": "urn_hypergeometric", "parameters": {"red": 2, "blue": 2, "draws": 2, "target_red": 2}}, "expected_answer": "1/6"}

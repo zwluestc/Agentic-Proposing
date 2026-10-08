@@ -1,0 +1,45 @@
+{
+  "skill_id": "math.gcd_lcm.exact-construction",
+  "name": "Ordered GCD-LCM pair counting",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "verified",
+  "description": "Count ORDERED pairs of positive integers (x,y) with gcd(x,y)=gcd and lcm(x,y)=lcm. Require lcm to be divisible by gcd; pairs with x=y count once.",
+  "intent": "Ordered GCD-LCM pair counting",
+  "triggers": [
+    "gcd_lcm"
+  ],
+  "inputs": [
+    "metadata.math_spec.parameters"
+  ],
+  "outputs": [
+    "scalar exact answer"
+  ],
+  "difficulty_effect": {
+    "mechanism": "constraint interaction; parameter dependent, not measured"
+  },
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "evidence_contract": {
+    "knowledge_dependency": false
+  },
+  "source_refs": [
+    {
+      "type": "hand_authored",
+      "source": "scripts/prepare_math_training.py"
+    }
+  ],
+  "metrics": {
+    "passed": true,
+    "validation_type": "exact_constructor_fixture_replay",
+    "fixtures_passed": 2,
+    "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+  },
+  "tags": [
+    "math",
+    "gcd_lcm",
+    "exact"
+  ]
+}

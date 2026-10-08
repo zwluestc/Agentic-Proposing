@@ -1,0 +1,2 @@
+{"input": {"family": "optimization", "parameters": {"bound": 5, "a": 1, "b": 1, "c": 1, "d": 2, "budget": 5, "u": 2, "v": 3}}, "expected_answer": "10"}
+{"input": {"family": "optimization", "parameters": {"bound": 5, "a": 1, "b": 1, "c": 1, "d": 2, "budget": 5, "u": 1, "v": 3}}, "expected_answer": "7"}

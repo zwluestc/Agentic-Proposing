@@ -1,0 +1,2 @@
+{"input": {"family": "ballot", "parameters": {"a_votes": 3, "b_votes": 2}}, "expected_answer": "2"}
+{"input": {"family": "ballot", "parameters": {"a_votes": 4, "b_votes": 2}}, "expected_answer": "5"}

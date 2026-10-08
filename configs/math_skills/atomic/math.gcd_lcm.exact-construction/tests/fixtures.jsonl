@@ -1,0 +1,2 @@
+{"input": {"family": "gcd_lcm", "parameters": {"gcd": 2, "lcm": 12}}, "expected_answer": "4"}
+{"input": {"family": "gcd_lcm", "parameters": {"gcd": 3, "lcm": 3}}, "expected_answer": "1"}

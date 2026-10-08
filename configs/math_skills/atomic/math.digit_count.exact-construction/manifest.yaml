@@ -1,0 +1,45 @@
+{
+  "skill_id": "math.digit_count.exact-construction",
+  "name": "Digit-string constraint composition",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "verified",
+  "description": "Count ordered digit strings of fixed length, alphabet 0 through alphabet-1, unequal adjacent digits, and a digit-sum residue. Explicitly state whether leading zero is allowed. Explain a DP rather than listing arbitrary strings.",
+  "intent": "Digit-string constraint composition",
+  "triggers": [
+    "digit_count"
+  ],
+  "inputs": [
+    "metadata.math_spec.parameters"
+  ],
+  "outputs": [
+    "scalar exact answer"
+  ],
+  "difficulty_effect": {
+    "mechanism": "constraint interaction; parameter dependent, not measured"
+  },
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "evidence_contract": {
+    "knowledge_dependency": false
+  },
+  "source_refs": [
+    {
+      "type": "hand_authored",
+      "source": "scripts/prepare_math_training.py"
+    }
+  ],
+  "metrics": {
+    "passed": true,
+    "validation_type": "exact_constructor_fixture_replay",
+    "fixtures_passed": 2,
+    "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+  },
+  "tags": [
+    "math",
+    "digit_count",
+    "exact"
+  ]
+}

@@ -1,0 +1,2 @@
+{"input": {"family": "lattice_polygon_interior", "parameters": {"vertices": [[0, 0], [3, 0], [3, 3], [0, 3]]}}, "expected_answer": "4"}
+{"input": {"family": "lattice_polygon_interior", "parameters": {"vertices": [[0, 0], [4, 0], [0, 3]]}}, "expected_answer": "3"}

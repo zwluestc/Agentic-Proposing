@@ -1,0 +1,2 @@
+{"input": {"family": "coin_change", "parameters": {"coins": [1, 2, 5], "amount": 5}}, "expected_answer": "4"}
+{"input": {"family": "coin_change", "parameters": {"coins": [2, 3], "amount": 7}}, "expected_answer": "1"}

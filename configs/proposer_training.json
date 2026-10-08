@@ -1,0 +1,87 @@
+{
+  "workspace": "research-workspace",
+  "seeds": "configs/proposer_seeds.demo.jsonl",
+  "bootstrap_synthetic_skills": true,
+  "teacher": {
+    "type": "openai_compatible",
+    "base_url": "https://evamux.alibaba-inc.com/v1",
+    "model": "qwen3.6-plus",
+    "api_key_env": "ENVMUX_API_KEY",
+    "timeout_seconds": 180
+  },
+  "verifier": {
+    "type": "openai_compatible",
+    "base_url": "https://evamux.alibaba-inc.com/v1",
+    "model": "qwen3.6-plus",
+    "api_key_env": "ENVMUX_API_KEY",
+    "timeout_seconds": 180
+  },
+  "runtime": {
+    "harness": {"max_turns": 20, "temperature": 0.5, "max_tokens_per_turn": 2048},
+    "permissions": {
+      "allow_read_only": true,
+      "allow_network": false,
+      "allow_process": true,
+      "allow_registry_writes": false
+    },
+    "verification": {
+      "require_self_check": true,
+      "model_committee_enabled": true,
+      "model_voters": 3,
+      "second_audit": true
+    },
+    "skill_mining": {"enabled": false}
+  },
+  "sft": {
+    "episodes": 32,
+    "data_file": "research-workspace/training/sft_trajectories.jsonl",
+    "base_model": "Qwen/Qwen3-4B-Instruct-2507",
+    "output_dir": "research-workspace/training/sft_checkpoint",
+    "max_length": 8192,
+    "epochs": 2,
+    "learning_rate": 0.00002,
+    "per_device_batch_size": 1,
+    "gradient_accumulation_steps": 8
+  },
+  "mgpo": {
+    "iterations": 16,
+    "group_size": 8,
+    "output_dir": "research-workspace/training/mgpo",
+    "prober_model": "Qwen/Qwen3-4B-Instruct-2507",
+    "prober_attempts": 16,
+    "prober_temperature": 1.4,
+    "max_context_tokens": 8192,
+    "max_action_tokens": 1536,
+    "rollout_temperature": 0.7,
+    "omega": 0.5,
+    "beta": 0.05,
+    "tau_pos": 1.0,
+    "tau_neg": 1.05,
+    "reward_base": 1.0,
+    "difficulty_weight": 1.0,
+    "curriculum_alpha": 0.1,
+    "curriculum_epsilon": 0.05,
+    "judge_reflections": true,
+    "learning_rate": 0.000001,
+    "weight_decay": 0.1,
+    "seed": 42
+  },
+  "solver_grpo": {
+    "data_file": "research-workspace/training/mgpo/rollouts.jsonl",
+    "model": "Qwen/Qwen3-4B-Instruct-2507",
+    "output_dir": "research-workspace/training/solver_grpo",
+    "require_paper_budget": false,
+    "paper_budget": 10000,
+    "epochs": 3,
+    "learning_rate": 0.000001,
+    "group_size": 8,
+    "global_batch_size": 8,
+    "per_device_batch_size": 1,
+    "temperature": 0.7,
+    "max_sequence_length": 20480,
+    "max_prompt_length": 2048,
+    "beta": 0.05,
+    "clip_epsilon": 0.2,
+    "weight_decay": 0.1
+  }
+}

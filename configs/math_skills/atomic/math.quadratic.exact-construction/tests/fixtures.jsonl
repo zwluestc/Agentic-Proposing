@@ -1,0 +1,2 @@
+{"input": {"family": "quadratic", "parameters": {"a": 1, "b": -5, "c": 6, "lo": 0, "hi": 10, "power": 2}}, "expected_answer": "13"}
+{"input": {"family": "quadratic", "parameters": {"a": 1, "b": 1, "c": -6, "lo": -10, "hi": 10, "power": 3}}, "expected_answer": "-19"}

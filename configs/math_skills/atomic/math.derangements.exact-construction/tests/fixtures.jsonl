@@ -1,0 +1,2 @@
+{"input": {"family": "derangements", "parameters": {"n": 4}}, "expected_answer": "9"}
+{"input": {"family": "derangements", "parameters": {"n": 5}}, "expected_answer": "44"}

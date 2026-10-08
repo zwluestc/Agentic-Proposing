@@ -1,0 +1,25 @@
+{
+  "skill_id": "math.validation.boundary-check",
+  "name": "Boundary and degeneracy checks",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "curated",
+  "description": "Inspect smallest allowed inputs, endpoint inclusion, leading zeros, degenerate geometry, zero-probability conditions, empty sets and unreachable graph targets. A boundary test is evidence, not a proof of all parameter settings.",
+  "intent": "Boundary and degeneracy checks",
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "source_refs": [
+    {
+      "type": "hand_authored"
+    }
+  ],
+  "metrics": {
+    "scope": "Process guidance; not independently replay-certified"
+  },
+  "tags": [
+    "math",
+    "process"
+  ]
+}

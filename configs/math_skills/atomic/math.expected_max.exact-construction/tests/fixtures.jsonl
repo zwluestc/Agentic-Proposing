@@ -1,0 +1,2 @@
+{"input": {"family": "expected_max", "parameters": {"dice": 2, "sides": 2}}, "expected_answer": "7/4"}
+{"input": {"family": "expected_max", "parameters": {"dice": 2, "sides": 6}}, "expected_answer": "161/36"}

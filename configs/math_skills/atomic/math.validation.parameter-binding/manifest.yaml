@@ -1,0 +1,25 @@
+{
+  "skill_id": "math.validation.parameter-binding",
+  "name": "Witness-to-question binding",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "curated",
+  "description": "Check every numerical value, matrix entry, graph edge, domain and target against metadata.math_spec. Remove any extra prose constraint absent from the witness. The calculator proves only the declared construction, so matching the question is essential.",
+  "intent": "Witness-to-question binding",
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "source_refs": [
+    {
+      "type": "hand_authored"
+    }
+  ],
+  "metrics": {
+    "scope": "Process guidance; not independently replay-certified"
+  },
+  "tags": [
+    "math",
+    "process"
+  ]
+}

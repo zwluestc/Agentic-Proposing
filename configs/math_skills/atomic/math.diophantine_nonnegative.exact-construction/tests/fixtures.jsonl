@@ -1,0 +1,2 @@
+{"input": {"family": "diophantine_nonnegative", "parameters": {"a": 2, "b": 3, "total": 7}}, "expected_answer": "1"}
+{"input": {"family": "diophantine_nonnegative", "parameters": {"a": 3, "b": 5, "total": 15}}, "expected_answer": "2"}

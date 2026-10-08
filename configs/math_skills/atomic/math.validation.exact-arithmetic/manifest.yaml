@@ -1,0 +1,25 @@
+{
+  "skill_id": "math.validation.exact-arithmetic",
+  "name": "Exact arithmetic and normalization",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "curated",
+  "description": "Use integers and reduced fractions; never substitute rounded floating-point outputs for exact answers. Distinguish squared lengths/areas from unsquared quantities. Normalize equivalent rational answers and explicitly specify units where relevant.",
+  "intent": "Exact arithmetic and normalization",
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "source_refs": [
+    {
+      "type": "hand_authored"
+    }
+  ],
+  "metrics": {
+    "scope": "Process guidance; not independently replay-certified"
+  },
+  "tags": [
+    "math",
+    "process"
+  ]
+}

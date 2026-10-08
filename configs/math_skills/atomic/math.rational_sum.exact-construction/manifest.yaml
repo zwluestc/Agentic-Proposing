@@ -1,0 +1,45 @@
+{
+  "skill_id": "math.rational_sum.exact-construction",
+  "name": "Exact telescoping rational sums",
+  "version": "2.0.0",
+  "kind": "atomic",
+  "status": "verified",
+  "description": "Ask for scale times sum_{k=start}^end 1/[k*(k+shift)]. Use an inclusive range, exact rational arithmetic, and a nontrivial shift or range. Explain the cancellation structure.",
+  "intent": "Exact telescoping rational sums",
+  "triggers": [
+    "rational_sum"
+  ],
+  "inputs": [
+    "metadata.math_spec.parameters"
+  ],
+  "outputs": [
+    "scalar exact answer"
+  ],
+  "difficulty_effect": {
+    "mechanism": "constraint interaction; parameter dependent, not measured"
+  },
+  "tools": [
+    "skill_python",
+    "python_eval"
+  ],
+  "evidence_contract": {
+    "knowledge_dependency": false
+  },
+  "source_refs": [
+    {
+      "type": "hand_authored",
+      "source": "scripts/prepare_math_training.py"
+    }
+  ],
+  "metrics": {
+    "passed": true,
+    "validation_type": "exact_constructor_fixture_replay",
+    "fixtures_passed": 2,
+    "scope": "Two independent hand-calculated parameter fixtures; not a proof of arbitrary natural-language validity or hardness."
+  },
+  "tags": [
+    "math",
+    "rational_sum",
+    "exact"
+  ]
+}
