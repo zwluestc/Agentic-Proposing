@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 from typing import Any, Iterable
+import gzip
 import json
 
 
@@ -15,7 +16,9 @@ ACTION_PROTOCOL = (
 
 def read_jsonl(path: str | Path) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
-    with Path(path).open(encoding="utf-8") as handle:
+    source = Path(path)
+    opener = gzip.open if source.suffix == ".gz" else open
+    with opener(source, "rt", encoding="utf-8") as handle:
         for number, line in enumerate(handle, 1):
             if not line.strip():
                 continue
